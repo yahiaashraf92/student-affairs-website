@@ -1,0 +1,147 @@
+﻿<head>
+  <title>View Students</title>
+  {%extends "navigatefotter.html" %}
+  {%block body%}
+  {% load static %}
+  <br />
+  <div class="viewtable" style="margin-bottom: 230px;">
+    <div align="center" style="margin-top:30px;">
+      <div class="search-section">
+        <form action="{% url 'assign' %}" method="post">
+
+
+          {% csrf_token %}
+
+          Assign Department
+
+          <input class="search-bar" type="number" id="searchid" name="searchid" placeholder="ID" style="width: 100px;"
+            required>
+
+          <button class="search-btn" type="submit" value="search"><img class="search-icon"
+              src="{% static 'pic/search.svg'%}"></button>
+
+          {% if messages %}
+
+          {% for message in messages %}
+
+
+
+          <div role="alert">{{ message }}</div>
+
+
+          {% endfor %}
+
+
+          {% endif %}
+
+        </form>
+
+        <form action="{% url 'activeStudents' %}" method="post">
+
+          {% csrf_token %}
+
+          &nbsp;&nbsp;Active Students
+
+          <input class="search-bar" type="text" id="searchname" name="searchname" placeholder="Name" required>
+
+          <button class="search-btn" type="submit" value="search"><img class="search-icon"
+              src="{% static 'pic/search.svg'%}"></button>
+
+        </form>
+
+
+      </div>
+
+
+
+
+
+    </div>
+
+    <br />
+
+    <form align="center">
+      Student Level:
+      <select class="form-input" name="level" id="levelfilter">
+        <option>All</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+      </select>
+      Departement:
+      <select name="level" id="departmentlevel">
+        <option>All</option>
+        <option>CS</option>
+        <option>IS</option>
+        <option>AI</option>
+        <option>DS</option>
+        <option>IT</option>
+      </select>
+
+      <button class="filter-save-btn" type="button" onclick="filter()">filter</button>
+    </form><br />
+    <table id="viewStudent" class="content-table">
+      <thead>
+        <tr>
+          <th>Student Name</th>
+          <th>Student ID</th>
+          <th>Level</th>
+          <th>Department</th>
+          <th>GPA</th>
+          <th>Student Activity</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {%for student in students %}
+        <tr>
+
+          <td>{{student.Name}}</td>
+
+          <td>{{student.ID}}</td>
+
+          <td>{{student.level}}</td>
+
+          <td>{{student.dep}}</td>
+
+          <td>{{student.GPA}}</td>
+
+          {% if student.status == "Active"%}
+
+          <td><input type="radio" id="A{{student.ID}}" name={{student.ID}} value="Active" checked
+              onclick="changeActive('A{{student.ID}}')">Active <input type="radio" id={{student.ID}} name={{student.ID}}
+              value="Inactive" onclick="changeActive('{{student.ID}}')">Inactive </td>
+
+          {% else %}
+
+          <td><input type="radio" id="A{{student.ID}}" name={{student.ID}} value="Active"
+              onclick="changeActive('A{{student.ID}}')">Active <input type="radio" id={{student.ID}} name={{student.ID}}
+              value="Inactive" onclick="changeActive('{{student.ID}}')" checked>Inactive </td>
+
+          {%endif%}
+
+          <td>
+            <form action="{% url 'edit' student.ID  %}" method="post">
+
+              {% csrf_token %}
+
+              <button class="filter-save-btn" type="submit" value="edit">Edit</button>
+
+            </form>
+          </td>
+
+        </tr>
+
+        {%endfor%}
+      </tbody>
+
+
+    </table>
+
+    <br />
+
+  </div>
+
+  <script src="{% static 'view.js'%}"></script>
+  {%endblock%}

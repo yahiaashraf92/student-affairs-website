@@ -1,0 +1,41 @@
+﻿<html>
+<head>
+    <title>Assign Department </title>
+    {%extends "navigatefotter.html" %}
+    {%block body%}
+    {% load static %}
+    <div class="assigndep" style="margin-bottom: 380px;">
+        <h2 style="text-align: center;margin-top:40px;"><b>Assign department </b></h2>
+        <div style="text-align: center">
+            <form action="{% url 'assigndepartment' student.ID  %}" method="POST">
+                {% csrf_token %}
+                Name: {{student.Name}}&nbsp
+            
+                ID: {{student.ID}} &nbsp
+            
+                Departments:
+            
+                <select class="form-input" id="Deps" name = "dep">
+                
+                    <option>Choose one </option>
+                
+                    <option>CS</option>
+                
+                    <option>AI</option>
+                
+                    <option>IS</option>
+                
+                    <option>IT</option>
+                
+                    <option>DS</option>
+            
+                </select><br /><br>
+            
+                <button class="filter-save-btn" type="submit" value="Submit">Submit</button><br /><br />
+        
+            </form>
+        </div>
+    </div >
+    <br />
+    <script src="{% static 'assign.js'%}"></script>
+{%endblock%}

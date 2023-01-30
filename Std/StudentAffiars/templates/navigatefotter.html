@@ -1,0 +1,24 @@
+
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'StyleSheet.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'search-view.css'%}">
+</head>
+
+<body>
+    <nav class="list">
+        <div class="context">
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'view' %}">View Students</a> </li>
+                <li><a href="{% url 'add' %}">Add Student</a></li>    
+            </ul>
+        </div>
+    </nav>
+    {% block body %}
+    {% endblock%}
+    <footer class="foot context">
+        <p style="color: aliceblue; text-align: center;">copyright &copy; 2022</p>
+    </footer>
+    
+</body>
+    

@@ -1,0 +1,58 @@
+﻿<head>
+  <title>Seacrh Students</title>
+  {%extends "navigatefotter.html" %}
+  {%block body%}
+  {% load static %}
+  <br />
+  <div class="searchtb" style="margin-bottom: 360px;">
+    <form align="center" style="margin-top:10px;">
+      level:
+      <select name="level" id="lev">
+        <option>All</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+      </select>
+      <button type="button" onclick="searchFilter()">filter</button>
+    </form>
+
+    <br />
+    <table class="content-table" id="searchtable">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>ID</th>
+          <th>level</th>
+          <th>department</th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tr>
+        <td>ahmed mohamed</td>
+        <td>20202013</td>
+        <td>2</td>
+        <td></td>
+        <td> <button onclick="window.location.href='edit.html';">Edit</button></td>
+      </tr>
+
+      <tr>
+        <td>ahmed mohamed</td>
+        <td>20201955</td>
+        <td>3</td>
+        <td> <button onclick="window.location.href='assign.html';">Assign department</button></td>
+        <td> <button onclick="window.location.href='edit.html';">Edit</button></td>
+      </tr>
+      <tr>
+        <td>ahmed mohamed</td>
+        <td>20201855</td>
+        <td>4</td>
+        <td>CS</td>
+        <td> <button onclick="window.location.href='edit.html';">Edit</button></td>
+      </tr>
+    </table>
+    <br />
+  </div>
+  <script src="{% static 'search.js'%}"></script>
+  {%endblock%}

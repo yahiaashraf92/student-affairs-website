@@ -1,0 +1,138 @@
+.viewtable {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content-table {
+  border-collapse: collapse;
+  border-radius: 6px 6px 0 0;
+  overflow: hidden;
+  margin: 25px 0;
+  font-size: 0.9em;
+  min-width: 400px;
+  
+}
+.content-table thead tr {
+  background-color: #14279B;
+  color: white;
+  text-align: left;
+  font-weight: bold;
+}
+.content-table th, 
+.content-table td {
+  padding: 12px 15px;
+}
+.content-table tbody tr {
+  border-bottom: 1px solid rgb(156, 151, 151);
+}
+.content-table tbody tr:nth-of-type(even) {
+ background-color: #f3f3f3;
+}
+.content-table tbody tr:last-of-type {
+  border-bottom: 2px solid #14279B;
+}
+
+.table-btn {
+  background-color: #5C7AEA;
+  color: black;
+  border-style: none;
+  border-radius: 4px;
+  padding: 4px 6px;
+  transition: opacity 0.25s;
+}
+.table-btn:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+.table-btn:active {
+  opacity: 0.4;
+  padding: 5px 8px;
+}
+
+.now {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+}
+.search-section {
+  padding: 25px 0 25px 0;
+  display:flex;
+  align-items: center;
+  margin-top: 70px;
+  text-align:center;
+  justify-content: center;
+}
+
+.search-bar {
+  width: 200px;
+  height: 34px;
+  margin-right: -2px;
+  padding-left: 11px;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 3px;
+  font-size: 17px;
+  text-align: left;
+  box-shadow: inset 1px 2px 4px rgba(0, 0, 0, 0.1);
+  border-color: rgb(153, 153, 153);
+}
+
+.search-bar::placeholder {
+  font-family: Arial, Helvetica, sans-serif;
+  padding-left: 2px;
+  font-size: 16px;
+  text-align: left;
+}
+
+.view-form {
+  text-align: center;
+}
+.search-btn {
+  width: 60px;
+  height: 38px;
+  border-style: solid;
+  cursor: pointer;
+  border-width: 1px;
+  border-radius: 3px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-color: rgb(153, 153, 153);
+  background-color: rgb(240, 240, 240);
+  margin-top: 10px;
+}
+
+.students-table {
+  width: 600px;
+  border-collapse: collapse;
+  border-style: solid;
+  border-color: #e0fff2;
+  background-color: #a3f0c982;
+
+}
+
+.search-icon {
+  height: 24px;
+  margin-top: 3px;
+}
+
+.filter-save-btn {
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: 15px;
+  padding: 10px;
+  border-style: none;
+  background-color: #5C7AEA;
+  color: #14279B;
+  border-radius: 6px;
+  transition: opacity 0.25s;
+}
+.filter-save-btn:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+.filter-save-btn:active {
+  opacity: 0.4;
+  padding: 15px;
+}

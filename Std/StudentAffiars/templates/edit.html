@@ -1,0 +1,72 @@
+﻿<head>
+    <title>
+        Edit Student Data
+    </title>
+    {%extends "navigatefotter.html" %}
+    {%block body%}
+    {% load static %}
+
+
+    <div class="form">
+        <h1 align="center">
+            Edit Student Data
+        </h1>
+        <form action="{% url 'update' student.ID %}" method="POST" style="text-align-last:center" id="form">
+            <fieldset>
+                <legend>Edit Student Info</legend>
+                {% csrf_token %}
+
+
+                <label for="name"><mark>Name</mark></label>
+                <input class="form-input" type="text" id="name" name="name" value=" {{student.Name}} "><br><br>
+
+                <label for="gpa"><mark>GPA</mark></label>
+                <input type="text" class="form-input" id="gpa" name="gpa" value="{{student.GPA}}"><br><br>
+
+                <label for="level"><mark>Level</mark></label>
+                <input type="number" class="form-input" id="level" name="level" value="{{student.level}}" min=1
+                    max=4><br><br>
+
+                <label for="gender"><mark>Gender</mark></label>
+
+                {% if student.Gender == "Male"%}
+                <input type="radio" name={{student.ID}} value="Male" checked>Male <input type="radio"
+                    name={{student.ID}} value="Female">Female
+                {% else %}
+                <input type="radio" name={{student.ID}} value="Male">Male <input type="radio" name="{{student.ID}}"
+                    value="Female" checked>Female
+                {%endif%}
+
+                <br><br>
+                <label for="status"><mark>Status</mark></label>
+                {% if student.status == "Active"%}
+                <input type="radio" name="A{{student.ID}}" value="Active" checked>Active <input type="radio"
+                    name="A{{student.ID}}" value="Inactive">Inactive
+                {% else %}
+                <input type="radio" name="A{{student.ID}}" value="Active">Active <input type="radio"
+                    name="A{{student.ID}}" value="Inactive" checked>Inactive
+                {%endif%}
+                <br><br>
+
+                {% if not student.dep %}
+                Department: null
+                {% else %}
+                department: {{student.dep}}
+                {%endif%}
+                <br /><br />
+
+                <label for="email"><mark>E-Mail</mark></label>
+                <input type="email" class="form-input" id="email" name="mail" value="{{student.mail}}"><br><br>
+
+                <label for="mobile no."><mark>Phone Number</mark></label>
+                <input type="text" class="form-input" id="phone" name="phone" value="{{student.phone}}"><br><br>
+
+                <button style="display: inline-block ;" class="add-student-button" type="submit" value="update" name="update">Update</button>
+
+                <button style="display: inline-block ;" class="add-student-button" type="submit" value="Delete Student" name="Delete Student"
+                    id="Delete Student">Delete</button>
+            </fieldset>
+        </form>
+    </div>
+    <script src="{% static 'edit.js'%}"></script>
+    {%endblock%}

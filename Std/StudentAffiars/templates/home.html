@@ -1,0 +1,63 @@
+﻿<header class="mainhead">
+    <div class="context">
+        <h1>Welcome</h1>
+    </div>
+</header>
+<head>
+    <title>home page</title>
+{%extends "navigatefotter.html" %}
+{%block body%}
+
+
+
+    <div class="about context">
+        <h2 style="text-decoration: underline;">ABOUT</h2>
+        <p>
+            This website is a comprehensive online resource for college and university administrators
+            covering all functional areas of a higher education institution, it highly aims to support the
+            academic and personal development of individuals attending college, by contrast,
+            may focus more on providing support to remove personal, physical, and financial barriers
+            to help learners reach their academic goals
+        </p>
+    </div>
+    
+    <br />
+    <div class="alll">
+        <h2 style="margin-left:10px;">All you need to know about</h2>
+        <div class="circle" align="center">
+            <p>
+                <b style="font-size: large;">View Student</b><br />
+
+                this shows you all the student name, level,
+                GPA, status(active or inactive) which the user can change and department if they are levl 3 or 4
+            </p>
+        </div>
+        <div class="circle" align="center">
+            
+            <p>
+                <b style="font-size: large;">Add Student</b><br />
+                adds new student to the system. Student information includes id, name,
+                date of birth, GPA, gender, level, status=”active”, “inactive”, department, email,
+                mobile number
+            </p>
+        </div>
+        <div class="circle" align="center">
+           
+            <p >
+                <b style="font-size: large;">Edit Student</b><br />
+                in this page u can update an existing student information, as well as deleting a student's information which
+                can be accessed through
+            </p>
+        </div>
+        <div class="circle" align="center">
+            <p>
+                <b style="font-size: large;"> Search</b><br />
+                the search bar helps finding students with ease, when search by name it displays a table
+                of all students with same name, form then you can also <b>assign department</b> to a student
+                (if he's level 3)
+            </p>
+        </div>
+    </div>
+
+<br>
+{%endblock%}

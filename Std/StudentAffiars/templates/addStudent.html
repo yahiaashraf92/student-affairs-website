@@ -1,0 +1,88 @@
+﻿<head>
+    <title>Add Student</title>
+
+    {%extends "navigatefotter.html" %}
+    {%block body%}
+    {% load static %}
+    <div style="text-align:center;">
+        <form action="{% url 'add' %}" class="add-edit-form" method="POST">
+            <fieldset>
+                <legend>
+                    Student Information
+                </legend>
+                {% if messages %}
+
+                {% for message in messages %}
+
+                {% if message.tags %}
+
+                <script>alert("{{ message }}")</script> {% endif %}
+
+
+                {% endfor %}
+
+
+                {% endif %}
+
+                {% csrf_token %}
+                <!--NAME-->
+                <label for="student-name"><mark>Name</mark></label>
+                <input type="text" class="form-input" id="name" name="name" placeholder="Name" minlength="5" required><br><br>
+
+
+                <!--ID-->
+                <label for="student-id"><mark>ID</mark></label>
+                <input type="number" class="form-input" id="id" name="id" placeholder="ID" required><br><br>
+
+
+                <!--GPA-->
+                <label for="student-gpa"><mark>GPA</mark></label>
+                <input type="number" class="form-input" id="gpa" step="any" name="gpa" placeholder="GPA" min="0" max="4" required><br><br>
+
+
+                <!--LEVEL-->
+                <label for="student-level"><mark>Level</mark></label>
+                <input type="number" class="form-input" id="level" step="any" name="level" placeholder="Level" min="1" max="4" required
+                    onblur="department()"><br><br>
+
+
+                <!--MAIL-->
+                <label for="student-mail"><mark>E-mail</mark></label>
+                <input type="email" class="form-input" id="mail" name="mail" placeholder="E-mail"><br><br>
+
+
+                <!--PHONE NUMBER-->
+                <label for="student-phone"><mark>Phone Number</mark></label>
+                <input type="text" class="form-input" id="phone" name="phone" placeholder="Phone Number" maxlength="11" minlength="11"
+                    required><br><br>
+
+                <p id="department" style="padding: 0px;"></p>
+                <!--BIRTH DATE-->
+                <label for="birthDate"><mark>Birth Date</mark></label>
+                <input type="date" class="form-input" id="birthDate" name="birthData" placeholder="date of birth" required><br><br>
+
+
+                <label for="ay 7aga"> <mark>Gender</mark> </label> 
+                <input type="radio" id="male" name="gender" value="Male" required>
+                Male
+                <input type="radio" id="female" name="gender" value="Female">
+                Female<br /><br />
+
+
+                <!--STATUS-->
+                <label for="ay 7aga"> <mark>Status</mark> </label>
+                <input type="radio" id="active" name="status" value="Active" required>
+                Active
+                <input type="radio" id="inactive" name="status" value="Inactive">
+                Inactive<br /><br />
+
+
+
+                <!--SUBMIIT-->
+                <button type="submit" class="add-student-button">submit</button>
+            </fieldset>
+        </form>
+        <br />
+    </div>
+    <script src="{% static 'addStudent.js'%}"></script>
+    {%endblock%}

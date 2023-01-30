@@ -1,0 +1,57 @@
+<head>
+    <title>Active Students</title>
+    {%extends "navigatefotter.html" %}
+    {%block body%}
+    {% load static %}
+    <br />
+    <div class="viewtable" style="margin-bottom: 230px; margin-top: 70px;">
+        <br />
+        <form align="center">
+            Student Level:
+            <select name="level" id="levelfilter">
+                <option>All</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+            </select>
+            Departement:
+            <select name="level" id="departmentlevel">
+                <option>All</option>
+                <option>CS</option>
+                <option>IS</option>
+                <option>AI</option>
+                <option>DS</option>
+                <option>IT</option>
+            </select>
+            <button class="filter-save-btn" type="button" onclick="filter()">Filter</button>
+        </form><br />
+        <table id="viewStudent" class="content-table">
+            <thead>
+                <tr>
+                    <th>Student Name</th>
+                    <th>Student ID</th>
+                    <th>Level</th>
+                    <th>Department</th>
+                    <th>GPA</th>
+                </tr>
+            </thead>
+            <tbody>
+                {%for student in students %}
+                {% if student.status == "Active" %}
+                <tr>
+                    <td>{{student.Name}}</td>
+                    <td>{{student.ID}}</td>
+                    <td>{{student.level}}</td>
+                    <td>{{student.dep}}</td>
+                    <td>{{student.GPA}}</td>
+                </tr>
+                {%endif%}
+                {%endfor%}
+            </tbody>
+
+        </table>
+        <br />
+    </div>
+    <script src="{% static 'view.js'%}"></script>
+    {%endblock%}
